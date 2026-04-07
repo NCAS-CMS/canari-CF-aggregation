@@ -1,0 +1,61 @@
+@startuml
+skinparam dpi 300
+
+
+
+footer PlantUML Version %version()
+
+partition "Initialisation & Setup" {
+  (*) --> "Parse CLI Args"
+  --> "Construct Filenames"
+  if "Testing?" then
+    --> [Yes] "Prepend 'testing_'"
+  else
+    --> [No] "Standard Name"
+  endif
+  --> "Create Backup & Open"
+}
+
+' Use -down-> to force this partition BELOW the first one
+"Initialisation & Setup" -down-> "Metadata Discovery"
+
+partition "Metadata Discovery" {
+  --> "Scan for Time Units"
+  if "360_day Cal?" then
+    --> [Yes] "Map Coords to Bounds"
+  else
+    --> [No] "FATAL Error"
+    --> (*)
+  endif
+  --> "Store Data in Memory"
+}
+
+' Force this partition BELOW the second one
+"Metadata Discovery" -down-> "Variable Growth Loop"
+
+partition "Variable Growth Loop" {
+  --> "Loop: Next Variable"
+  
+  if "Variable Type?" then
+    --> [Time Coord] "Calc Delta (Size 1 Fix)"
+    --> "Gen New Time Steps"
+  else if "" then
+    --> [Time Bounds] "Stack Bounds Array"
+  else if "" then
+    --> [CFA Frag] "Tile Map/URIs"
+    if "Realm?" then
+      --> [Ice] "Ice Date Stamp"
+    else
+      --> [Atmos] "Standard Date"
+    endif
+  endif
+
+  --> "Write to File & Sync"
+}
+
+partition "Finalisation" {
+  "Write to File & Sync" --> "Update Metadata"
+  --> "Close Dataset"
+  --> (*)
+}
+@enduml

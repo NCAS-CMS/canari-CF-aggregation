@@ -1,0 +1,35 @@
+@startuml
+scale 0.7
+skinparam dpi 300
+skinparam shadowing false
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam ConditionEndStyle hline
+
+title CANARI CFA Workflow
+
+start
+
+partition "Selection" {
+    :choose scenario (historical or SSP3-7.0);
+    :choose simulation ID (e.g. u-cv575);
+}
+
+partition "Lifecycle" {
+    if (Relevant seed exists?) then (yes)
+        :found existing data;
+        note right: 🌱 Skip to Grow
+    else (no)
+        :create seed;
+        note right: 🆕 New initialisation
+    endif
+
+    :grow;
+    note right: 🌿 Processing...
+
+    :arrange 💐;
+    note right: Finalising output
+}
+
+stop
+@enduml

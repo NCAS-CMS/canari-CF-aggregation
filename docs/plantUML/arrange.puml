@@ -1,0 +1,63 @@
+@startuml
+skinparam dpi 300
+
+' Spacing for Portrait A4
+skinparam nodesep 40
+skinparam ranksep 40
+
+
+footer PlantUML Version %version()
+
+partition "Initialisation" {
+  (*) --> "Load Member/RunID Mapping"
+  --> "Parse CLI Args\n(Member > 1 check)"
+  --> "Extract Template IDs\n(Member 1 vs Target)"
+}
+
+"Initialisation" -down-> "Batch Data Parsing"
+
+partition "Batch Data Parsing" {
+  --> "Load member-runid.md"
+  if "Find 'jdma batch'?" then
+    --> [Yes] "Extract Batch IDs & Cycle Points"
+    --> "Map Seasons to Batch Numbers"
+  else
+    --> [No] "FATAL: Exit Error"
+    --> (*)
+  endif
+}
+
+"Batch Data Parsing" -down-> "File Preparation"
+
+partition "File Preparation" {
+  --> "Identify Template File (.cfa)"
+  if "Testing?" then
+    --> [Yes] "Prepend 'testing_'"
+  else
+    --> [No] "Standard Name"
+  endif
+  --> "Copy Template to New Member File"
+  --> "Open New File (r+)"
+}
+
+"File Preparation" -down-> "Processing Loop"
+
+partition "Processing Loop" {
+  --> "Iterate NetCDF Variables"
+  
+  if "Variable Match?" then
+    --> [unique_values] "Generate Time Series\n(relativedelta)"
+    --> "Apply Quarter Map\n(MM -> Quarter Start)"
+    --> "Update IDs from Map"
+  else if "" then
+    --> [uris] "Find/Replace Old RunID\n(cv575 -> New RunID)"
+  endif
+
+  --> "Write to Variable"
+}
+
+partition "Finalisation" {
+  "Write to Variable" --> "Close Dataset"
+  --> (*)
+}
+@enduml

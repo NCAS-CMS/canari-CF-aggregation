@@ -1,0 +1,42 @@
+*.cfa
+missing*
+.DS_Store
+.ipynb_checkpoints
+.nfs*
+.html
+__pycache__
+*.swp
+*.nc
+*.bak
+foo*
+bar
+baz
+.sw?
+*.out
+*.err
+.DS_Store
+.vscode
+
+
+# Python
+__pycache__/
+.ruff_cache/
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.pdf
+*.synctex.gz
+
+
+# LaTeX build artifacts
+docs/*.bbl
+docs/*.blg
+docs/*.fdb_latexmk
+docs/*.fls
+docs/*.aux
+docs/*.log
+docs/*.toc
+docs/*.synctex.gz
