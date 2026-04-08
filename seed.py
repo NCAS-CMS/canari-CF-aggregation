@@ -9,19 +9,12 @@ import os
 import click
 import pathlib
 import re
+from utils import runid_format
 import click
 
 import cf
 
 
-def runid_format(ctx, param, value):
-    pattern = r"^[a-zA-Z]{2}[0-9]{3}$"
-    
-    # We still use the same logic, just a different way to report errors
-    if not re.match(pattern, value):
-        raise click.BadParameter(f"'{value}' is not LLNNN format (e.g., ab123)")
-        
-    return value
 
 @click.command(help=__doc__)
 @click.option(

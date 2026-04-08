@@ -27,7 +27,7 @@ __pycache__/
 *.log
 *.out
 *.toc
-*.pdf
+
 *.synctex.gz
 
 

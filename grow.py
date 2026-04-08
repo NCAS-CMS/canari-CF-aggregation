@@ -10,38 +10,14 @@ import pathlib
 import re
 import shutil
 import sys
-
+from utils import runid_format
 import cf
 import netCDF4
 import numpy as np
 from tqdm import tqdm
+from utils import find_delta_from_size1_bounds
 
 
-def runid_format(ctx, param, value):
-    pattern = r"^[a-zA-Z]{2}[0-9]{3}$"
-    
-    # We still use the same logic, just a different way to report errors
-    if not re.match(pattern, value):
-        raise click.BadParameter(f"'{value}' is not LLNNN format (e.g., ab123)")
-        
-    return value
-def find_delta_from_size1_bounds(bounds, realm, ncvar):
-    """For size 1 coordinates, find the cell size from the bounds."""
-
-    seconds_in_month = 2592000
-    lb = bounds[0, 0]
-    ub = bounds[0, 1]
-    if ub > lb:
-        delta = ub - lb
-    elif ub < lb:
-        raise ValueError(f"{realm} {ncvar}: Upper bound ({ub}) < lower bound ({lb})")
-    elif lb == seconds_in_month:
-        # Assume monthly instantaneous data measured in seconds
-        delta = seconds_in_month
-    else:
-        raise ValueError(f"{realm} {ncvar}: Upper bound ({ub}) = lower bound ({lb})")
-
-    return delta
 
 
 @click.command(help=__doc__)
