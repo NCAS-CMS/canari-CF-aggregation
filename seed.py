@@ -133,7 +133,7 @@ def main(runid, realm, member, testing, startyear, data_path):
                 data=cf.Data.full(t.get_size(), str(startyear) + "01")
             )
 
-            fa.long_name = "JDMA_batch_numbers"
+            fa.long_name = "This field contains 2 numbers separated by an underscore: [JDMA batch numbers] _ [Externals IDs], e.g. 3203_33076. The latter can be obtained from the command --- jdma batch [former] ---, where former is 3203 in this example."
             fa.data._nc_set_aggregation_write_status(True)
 
             g.set_construct(fa, axes="T")
