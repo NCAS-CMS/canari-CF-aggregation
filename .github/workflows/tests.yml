@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' # Clears the Node 20 warning
 
     steps:
     - name: Checkout code
@@ -24,6 +26,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest click numpy
 
-    - name: Run Pytest
+    - name: Run Pytest with Debugging
       run: |
+        echo "--- Directory Structure ---"
+        ls -R
+        echo "--- Test Collection ---"
+        pytest --collect-only
+        echo "--- Running Tests ---"
         pytest
