@@ -2,15 +2,17 @@ name: Python Unit Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - '**'        # Matches every branch (feature branches, main, etc.)
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - '**'        # Runs tests for PRs targeting any branch
 
 jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' # Clears the Node 20 warning
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
     steps:
     - name: Checkout code
@@ -26,11 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest click numpy
 
-    - name: Run Pytest with Debugging
+    - name: Run Pytest
       run: |
-        echo "--- Directory Structure ---"
         ls -R
-        echo "--- Test Collection ---"
-        pytest --collect-only
-        echo "--- Running Tests ---"
         pytest
