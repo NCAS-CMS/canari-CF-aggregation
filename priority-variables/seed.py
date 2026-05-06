@@ -4,8 +4,10 @@
 Create seed CFA file which is then subsequently grown and arranged.
 """
 
+import glob
 import argparse
 import os
+from tqdm import tqdm
 import numpy as np
 import click
 import pathlib
@@ -13,25 +15,23 @@ import re
 import sys
 # Adds the parent directory to the search path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils import runid_format
 import click
-
 import cf
 
-
-
 @click.command(help=__doc__)
-@click.option(
-    "--runid",
-    callback=runid_format,
-    required=True,
-    help="Run ID in format letter-letter-number-number-number",
-)
+
 @click.option(
     "--realm",
     required=True,
-    type=click.Choice(["atmos", "ocean", "ice"]),
+    type=click.Choice(["ATM", "OCN", "CICE"]),
     help="The climate realm",
+)
+
+@click.option(
+    "--scenario",
+    required=True,
+    type=click.Choice(["HIST2", "SSP370"]),
+    help="The scenario",
 )
 @click.option(
     "--member",
@@ -40,25 +40,7 @@ import cf
     required=True,
     help="The ensemble member number",
 )
-@click.option(
-    "--testing",
-    "-t",
-    required=False,
-    default="no",
-    type=click.Choice(["yes", "no"]),  # This is the "Click way"
-    help="Is this a test run? (default: no)",
-)
-@click.option(
-     "--startyear",
-    required=True,
-    help="Starting year of the simulation.",
-)
 
-@click.option(
-     "--endyear",
-    required=True,
-    help="End year of the simulation.",
-)
 @click.option(
     "--data_path",
     "-d",
@@ -67,116 +49,53 @@ import cf
     help="Path to the source data directory",
 )
 
-def main(runid, realm, member, testing, data_path ,  startyear, endyear):
+def main( realm, member,  data_path, scenario ):
 
-    years = np.arange(int(startyear), int(endyear)+1)
+    if scenario == 'HIST2':
+        runids = [
+    "cv575", "cv625", "cw345", "cw356", "cv827", "cv976", "cz547", "cy436", "cw342", "cw343",
+    "cy375", "cy376", "cy537", "cy811", "cy866", "cy873", "cy877", "cy879", "cy880", "cy881",
+    "da179", "da190", "da191", "da192", "da193", "db291", "db301", "db303", "db304", "db305",
+    "cz475", "cz568", "cz647", "cz648", "cz649", "dd436", "dd438", "dd439", "dd441", "dd442"
+]
+
+    elif scenario == 'SSP370':
+        runids = [
+    "de814", "de436", "de724", "de815", "df220", "de830", "de831", "de832", 
+    "de850", "de851", "de934", "de937", "de938", "de939", "de940", "df299", 
+    "df300", "df301", "df302", "df303", "df933", "df934", "df935", "df936", 
+    "df937", "dh412", "dh413", "dh415", "dh416", "dh417", "di511", "di512", 
+    "di513", "di514", "di515", "di703", "di704", "di705", "di706", "di707"
+]
+
+    runid=runids[int(member)-1]
+    print('member is ',member)
+    print('runid is ',runid)
+
+    # Identify discovery year
+    disc_year = "1950" if scenario == "HIST2" else "2015"
+
+    realm_to_suffix = {"ATM": "a", "OCN": "o", "CICE": "i"}
+
+    suffix = realm_to_suffix[realm]
+
+    discovery_files = glob.glob(str(data_path / disc_year / f"*{runid}{suffix}_*.nc"))
+    unique_vars = sorted({os.path.basename(f).split(f"{runid}{suffix}_")[1].replace(".nc", "") for f in discovery_files})
+
+    print(f"Found {len(unique_vars)} variables. Starting loop...")
+
+    pbar = tqdm(unique_vars, leave=False)
+
+    for var in pbar:
+    # Update the description for the current iteration
+        pbar.set_description(f"Processing {var}")
+            
+        var_pattern = str(data_path / "*" / f"*{runid}{suffix}_{var}.nc")
     
-    # Create the list of patterns targeting the subfolders
-    search_patterns = [str(data_path / f"{year}/*.nc") for year in years]
+        f = cf.read(var_pattern, aggregate=True, cfa_write=["field"])
 
-    # Debug: Print matches for each year to ensure the paths are correct
-    import glob
-    print(f"\nScanning directories for years: {years}")
-    for pattern in search_patterns:
-        matches = glob.glob(pattern)
-        print(f" - Pattern: {pattern} | Files found: {len(matches)}")
-
-    # Read the data using the list of patterns
-    # Using aggregate=False and cfa_write as per your workflow
-    f = cf.read(search_patterns, aggregate=False, cfa_write=["field", "field_ancillary"])
-
-    # Proceed with your analysis using the FieldList 'f'
-
-    if realm == "ice":
-        # Add missing time axes to ice variables
-        print(f"Adding missing time axes to {realm} variables")
-
-        time = f.select("ncvar%vvel")[0].coord("T")
-
-        for g in f:
-            if g.nc_get_variable() in ("Tinz", "Tsnz"):
-                print(f"Inserting T coord: {g.nc_get_variable()}")
-                axis = cf.DomainAxis(1)
-                axis.nc_set_dimension("time")
-
-                axis_key = g.set_construct(axis)
-                g.insert_dimension(axis_key, 0, inplace=True)
-                g.set_construct(time, axes=axis_key)
-
-        # Get rid of fields which shouldn't be there!
-        print(len(f))
-        f = cf.FieldList(
-            [
-                g
-                for g in f
-                if g.nc_get_variable()
-                not in (
-                    "VGRDi",
-                    "VGRDs",
-                )
-            ]
-        )
-        print(len(f))
-
-    if realm == "atmos" and testing == 'yes':
-        print(f"Subsetting {realm} fields to create a CFA file for testing")
-        f = f.select(
-            "ncvar%m01s00i002_2",
-            "ncvar%m01s00i003",
-            "ncvar%m01s00i024",
-            "ncvar%m01s00i024_2",
-            "ncvar%m01s03i226_2",
-        )
-
-    for i, g in enumerate(f):
-        t = g.domain_axis("T", default=None)
-
-        # if t is not None:
-        #     fa = cf.FieldAncillary(
-        #         data=cf.Data.full(t.get_size(), str(year) + "01")
-        #     )
-
-        #     fa.long_name = "This field contains 2 numbers separated by an underscore: [JDMA batch numbers] _ [Externals IDs], e.g. 3203_33076. The latter can be obtained from the command --- jdma batch [former] ---, where former is 3203 in this example."
-        #     fa.data._nc_set_aggregation_write_status(True)
-
-        #     g.set_construct(fa, axes="T")
-
-        # else:
-        #     pass
-
-    # Set time axes as unlimited to facilitate growing the file to the
-    # entire simulation length
-    print("Setting time axes as unlimited")
-    for i, g in enumerate(f):
-        t = g.domain_axis("T", default=None)
-        if t is None:
-            continue
-
-        t.nc_set_unlimited(True)
-        print(i, repr(g))
-
-    # Remove redundant 'name' property which points to the path of the
-    # original raw data from the CANARI simulations.
-    # [g.del_property("name") for g in f if g.has_property("name")]
-
-    # for field in f:
-    #     field.data.replace_directory(
-    #         os.path.dirname(list(field.data.get_filenames())[0]),
-    #         "",
-    #         normalise=False,
-    #     )
-
-    filename = f"CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{years[0]}-{years[-1]}.cfa"
-    if realm == "atmos" and testing == 'yes':
-        filename = f"testing_{filename}"
-
-    print(f"Writing CFA file,", filename)
-    cf.write(
-        f,
-        filename,
-        cfa={"constructs": ["field", "field_ancillary"]},
-        chunk_cache=4 * 2**20,
-    )
+        filename = f"CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{var}.cfa"
+        cf.write(f, filename, cfa={"constructs": ["field"]}, chunk_cache=256 * 2**20)
 
 if __name__ == "__main__":
     main()
