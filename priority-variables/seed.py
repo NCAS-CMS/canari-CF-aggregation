@@ -28,6 +28,12 @@ import cf
 )
 
 @click.option(
+    "--verbose",
+    type=click.IntRange(0,2),
+    default=None,
+    help="Verbosity level of cf.read",
+)
+@click.option(
     "--scenario",
     required=True,
     type=click.Choice(["HIST2", "SSP370"]),
@@ -49,7 +55,7 @@ import cf
     help="Path to the source data directory",
 )
 
-def main( realm, member,  data_path, scenario ):
+def main( realm, member,  data_path, scenario, verbose ):
 
     if scenario == 'HIST2':
         runids = [
@@ -69,8 +75,11 @@ def main( realm, member,  data_path, scenario ):
 ]
 
     runid=runids[int(member)-1]
-    print('member is ',member)
-    print('runid is ',runid)
+
+    print(f"scenario is {scenario}\n"
+      f"realm is {realm}\n"
+      f"member is {member}\n"
+      f"runid is {runid}")
 
     # Identify discovery year
     disc_year = "1950" if scenario == "HIST2" else "2015"
@@ -79,23 +88,30 @@ def main( realm, member,  data_path, scenario ):
 
     suffix = realm_to_suffix[realm]
 
-    discovery_files = glob.glob(str(data_path / disc_year / f"*{runid}{suffix}_*.nc"))
-    unique_vars = sorted({os.path.basename(f).split(f"{runid}{suffix}_")[1].replace(".nc", "") for f in discovery_files})
+    discovery_files = glob.glob(str(data_path / disc_year / f"{runid}{suffix}_*.nc"))
+    # print(discovery_files)
+    unique_vars = sorted({os.path.basename(f).split(f"{runid}{suffix}_{member}_")[1].replace(".nc", "") for f in discovery_files})
 
     print(f"Found {len(unique_vars)} variables. Starting loop...")
+    print(f"The variables are ",unique_vars)
 
-    pbar = tqdm(unique_vars, leave=False)
-
-    for var in pbar:
-    # Update the description for the current iteration
-        pbar.set_description(f"Processing {var}")
+    for var in tqdm(unique_vars, leave=False, ascii=True):
+    # for var in tqdm([unique_vars[0]], leave=False, ascii=True):
             
-        var_pattern = str(data_path / "*" / f"*{runid}{suffix}_{var}.nc")
-    
-        f = cf.read(var_pattern, aggregate=True, cfa_write=["field"])
+        var_pattern = str(data_path / "*" / f"{runid}{suffix}_{member}_{var}.nc")
+        # var_pattern = str(data_path / "195[01]" / f"*{runid}{suffix}_{member}_{var}.nc")
+            
+        f = cf.read(var_pattern, cfa_write=["field"], verbose=verbose, )
 
-        filename = f"CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{var}.cfa"
-        cf.write(f, filename, cfa={"constructs": ["field"]}, chunk_cache=256 * 2**20)
+        for g in f:
+            t_axis = g.dim("T")
+            if not t_axis.has_property("standard_name"):
+                t_axis.set_property("standard_name", "time")
+        
+        f_aggregated = cf.aggregate(f,relaxed_identities=True, donotchecknonaggregatingaxes=True, axes= 'time'                  )
+
+    filename = f"CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{var}.cfa"
+    cf.write(f_aggregated, filename, cfa={"constructs": ["field"]}, chunk_cache=256 * 2**20)
 
 if __name__ == "__main__":
     main()
