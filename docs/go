@@ -1,0 +1,6 @@
+# Script to automate manual PDF generation.
+
+pdflatex Technical_Report_CFA_CANARI
+bibtex Technical_Report_CFA_CANARI
+pdflatex Technical_Report_CFA_CANARI
+pdflatex Technical_Report_CFA_CANARI

@@ -2,9 +2,22 @@
 
 \usepackage[margin=1in]{geometry} 
 \usepackage{graphicx}            
-\usepackage{xcolor}              
-\usepackage[hidelinks]{hyperref}            
+
+
+\usepackage[dvipsnames]{xcolor} % Gives you access to better color names
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,      % Turns off the boxes, turns on colored text
+    linkcolor=RoyalBlue,  % Color for internal links (Figs, Tabs, Equations, TOC)
+    citecolor=ForestGreen, % Color for bibliographical citations
+    urlcolor=Bittersweet, % Color for external web links
+    filecolor=magenta,    % Color for local file links
+    pdfpagemode=FullScreen,
+}
+
 \usepackage{listings}
+\usepackage{gensymb}
 \usepackage{svg}
 \usepackage{fancyvrb}
 \usepackage{rotating}
@@ -625,6 +638,66 @@ options:
 (cfa_env) sci-vm-01|Mon Mar 23|16:54:10 GMT|cfa_scripts|[main]> 
 \end{lstlisting}
 \end{minipage}
+
+
+\section{Priority variables}
+
+
+\subsection{Background}
+
+The entirety of this report has dealt with the CF aggregration of the entire CANARI output as stored (currently, May 2026) on the JDMA system. For many applications however, only a subset of data is required and this is referred to as the `priority variables' -- PVs --  set. Detailed information regarding the variables themselves can be found on the relevant \href{https://ncas-cms.github.io/canari/#priority-and-derived-output-on-jasmin-canari-group-workspace}{NCAS-CMS GitHub page}.
+
+\subsection{Algorithm}
+
+For the priority variables, all data is accessible `live' on the `canari' Group Workspace on JASMIN at `/gws/ssde/j25b/canari/large-ensemble/priority-variables`. In addition, the PVs are pre-separated into single variable files, for example:
+
+\begin{itemize}
+
+    \item \texttt{\detokenize{cv575a_1_1hr_m01s05i216.nc}}, for the atmosphere.
+        \begin{itemize}
+    \item Surface temperature after timestep [\degree K], details of variables can be found on the \href{https://reference.metoffice.gov.uk/um/stash}{UM STASH browser}.
+    \item For example see Figure \ref{fig:ATM}.
+\end{itemize}
+    \item \texttt{\detokenize{cv575o_1_day__grid_T_tos.nc}}, for the ocean.
+        \begin{itemize}
+            \item Sea surface temperature [\degree C].
+            \item For example Figure \ref{fig:OCN}
+            \end{itemize}
+    \item \texttt{\detokenize{cv575i_1_day_aice.nc}}, for the sea ice.
+        \begin{itemize}
+            \item Ice area (aggregate) $ \in [0, 1]$.
+            \item For example Figure \ref{fig:CICE}
+            \end{itemize}
+
+\end{itemize}
+
+Because of the availability of the PVs on disk, the process for obtaining the CFA files representing each realm is greatly simplified and is performed by a single Python script, \texttt{priority-variables.py}. This script reads in all the data for each member of the historical and SSP3-7.0 ensembles and  
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ATM}
+    \caption{Example surface temperature after timestep (in Kelvin) from ensemble member 1 of the historical ensemble.}
+    \label{fig:ATM}
+\end{figure} 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/OCN}
+    \caption{Example sea surface temperature (in Celsius) from ensemble member 1 of the historical ensemble.}
+    \label{fig:OCN}
+\end{figure} 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/CICE}
+    \caption{Example sea ice area from ensemble member 1 of the historical ensemble.}
+    \label{fig:CICE}
+\end{figure} 
+
+
+
+\newpage
 
 
 \bibliographystyle{plainnat} 
