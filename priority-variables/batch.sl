@@ -4,17 +4,15 @@
 #SBATCH --qos=short
 #SBATCH -o %x.out
 #SBATCH -e %x.err
+##SBATCH -o %x_%j.out   # JobName_JobID.out
+##SBATCH -e %x_%j.err   # JobName_JobID.err
 ##SBATCH --cpus-per-task=16    
 #SBATCH --mem=200G           
-##SBATCH --ntasks=1
-##SBATCH --time=04:00:00
-##SBATCH --partition=debug
-##SBATCH --qos=debug
-
+#SBATCH --time=04:00:00
 
 conda activate cfa_env
 
-python -u seed.py --member "$member" --realm "$realm" --scenario "$scenario" \
+python -u priority-variables.py --member "$member" --realm "$realm" --scenario "$scenario" \
    --data_path "/gws/ssde/j25b/canari/shared/large-ensemble/priority/${scenario}/${member}/${realm}/yearly/" 
 
 # Check the exit code of the PREVIOUS command (the python script)

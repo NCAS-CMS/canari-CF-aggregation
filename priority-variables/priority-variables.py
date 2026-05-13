@@ -1,24 +1,23 @@
 #!/usr/bin/env python
 
 """
-Create seed CFA file which is then subsequently grown and arranged.
+Create seed CFA file for CANARI priority variables.
 """
 
-import glob
 import argparse
+import glob
 import os
-from tqdm import tqdm
-import numpy as np
-import click
 import pathlib
 import re
 import sys
 
-# Adds the parent directory to the search path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import cf
 import click
+import numpy as np
+from tqdm import tqdm
 
+# Adds the parent directory to the search path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 @click.command(help=__doc__)
 @click.option(
@@ -29,7 +28,7 @@ import click
 )
 @click.option(
     "--verbose",
-    type=click.IntRange(0, 2),
+    type=click.IntRange(-1, 3),
     default=None,
     help="Verbosity level of cf.read",
 )
@@ -169,14 +168,22 @@ def main(realm, member, data_path, scenario, verbose):
         }
     )
 
+
+    print(unique_vars)
+    print(f"The unique variables are {unique_vars}")
+
     print(f"Found {len(unique_vars)} variables. Starting loop...")
 
-    # for var in tqdm(unique_vars, leave=False, ascii=True):
-    # for var in tqdm([unique_vars[0]], leave=False, ascii=True):
-    for var in (pbar := tqdm(unique_vars, leave=False, ascii=True)):
+    # for var in (pbar := tqdm(unique_vars, leave=False, ascii=True)):
+    for var in (pbar := tqdm(['mon__grid_T_soqlatisf'], leave=False, ascii=True)):
         pbar.set_description(f"Processing {var}")
 
+        print(f"Now processing {var}")
+
         var_pattern = str(data_path / "*" / f"{runid}{suffix}_{member}_{var}.nc")
+        var_pattern = str(data_path / "203[89]" / f"{runid}{suffix}_{member}_{var}.nc")
+
+        print(f"The var_pattern is {var_pattern}")
 
         f = cf.read(
             var_pattern,
@@ -193,12 +200,11 @@ def main(realm, member, data_path, scenario, verbose):
                 if not t_axis.has_property("standard_name"):
                     t_axis.set_property("standard_name", "time")
             except ValueError:
-                # This triggers if "T" doesn't exist; we just skip to the next 'g'
+                # This triggers if "T" doesn't exist; i.e. just skip to the next 'g'
                 continue
 
         filename = f"CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{var}.cfa"
         cf.write(f, filename, cfa={"constructs": ["field"]}, chunk_cache=256 * 2**20)
-
 
 if __name__ == "__main__":
     main()
