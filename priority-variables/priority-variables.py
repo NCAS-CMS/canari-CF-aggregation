@@ -174,37 +174,49 @@ def main(realm, member, data_path, scenario, verbose):
 
     print(f"Found {len(unique_vars)} variables. Starting loop...")
 
-    # for var in (pbar := tqdm(unique_vars, leave=False, ascii=True)):
-    for var in (pbar := tqdm(['mon__grid_T_soqlatisf'], leave=False, ascii=True)):
+    for var in (pbar := tqdm(unique_vars, leave=False, ascii=True)):
+    # for var in (pbar := tqdm(['mon__grid_T_soqlatisf'], leave=False, ascii=True)):
         pbar.set_description(f"Processing {var}")
 
         print(f"Now processing {var}")
 
         var_pattern = str(data_path / "*" / f"{runid}{suffix}_{member}_{var}.nc")
-        var_pattern = str(data_path / "203[89]" / f"{runid}{suffix}_{member}_{var}.nc")
+        # var_pattern = str(data_path / "203[89]" / f"{runid}{suffix}_{member}_{var}.nc")
 
         print(f"The var_pattern is {var_pattern}")
 
-        f = cf.read(
-            var_pattern,
-            cfa_write=["field"],
-            verbose=verbose,
-            aggregate={
-                "relaxed_identities": True,
-            },
-        )
+        try:
 
-        for g in f:
-            try:
-                t_axis = g.dim("T")
-                if not t_axis.has_property("standard_name"):
-                    t_axis.set_property("standard_name", "time")
-            except ValueError:
-                # This triggers if "T" doesn't exist; i.e. just skip to the next 'g'
-                continue
+            f = cf.read(
+                var_pattern,
+                cfa_write=["field"],
+                verbose=verbose,
+                aggregate={
+                    "relaxed_identities": True,
+                },
+            )
 
-        filename = f"CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{var}.cfa"
-        cf.write(f, filename, cfa={"constructs": ["field"]}, chunk_cache=256 * 2**20)
+            for g in f:
+                try:
+                    t_axis = g.dim("T")
+                    if not t_axis.has_property("standard_name"):
+                        t_axis.set_property("standard_name", "time")
+                except ValueError:
+                    # This triggers if "T" doesn't exist; i.e. just skip to the next 'g'
+                    continue
+
+            filename = f"CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{var}.cfa"
+            cf.write(f, filename, cfa={"constructs": ["field"]}, chunk_cache=256 * 2**20)
+
+
+        except Exception as e:
+            # Handle the error and log the failed pattern
+            with open("failed_cf_coordinate_patterns.txt", "a") as f:
+                f.write(var_pattern + "\n")
+
+            print(f"Error occurred with {var_pattern}. Logged to failed_patterns.txt")
+
+
 
 if __name__ == "__main__":
     main()
