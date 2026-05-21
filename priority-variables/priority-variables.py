@@ -211,8 +211,10 @@ def main(realm, member, data_path, scenario, verbose):
 
         except Exception as e:
             # Handle the error and log the failed pattern
-            with open("failed_cf_coordinate_patterns.txt", "a") as f:
-                f.write(var_pattern + "\n")
+            log_file = "failed_cf_coordinate_patterns.txt"
+            if not os.path.exists(log_file) or var_pattern not in open(log_file).read():
+                with open(log_file, "a") as f:
+                    f.write(var_pattern + "\n")
 
             print(f"Error occurred with {var_pattern}. Logged to failed_patterns.txt")
 

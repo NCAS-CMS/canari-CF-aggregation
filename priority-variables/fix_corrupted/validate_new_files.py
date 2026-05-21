@@ -28,26 +28,28 @@ def check_file_health(filepath):
               required=True,
               help='Path to file or wildcard (e.g. --path "/data/*.nc")')
 def main(paths):
-    """
-    Check NetCDF files for corruption by explicitly passing paths via --path.
-    """
     total = 0
     corrupt = 0
 
-    # Because of multiple=True, 'paths' is a tuple of all --path inputs
     for p_input in paths:
-        # Manually expand glob because shell expansion doesn't always 
-        # work inside quotes/options
-        expanded_paths = glob.glob(os.path.expanduser(p_input))
+        # Expand wildcards if user provided them (e.g. *)
+        expanded_input = glob.glob(os.path.expanduser(p_input))
         
-        if not expanded_paths:
-            click.echo(f"No files found matching: {p_input}")
-            continue
-
-        for p in sorted(expanded_paths):
-            total += 1
-            if not check_file_health(p):
-                corrupt += 1
+        for item in expanded_input:
+            if os.path.isfile(item):
+                # It's a single file, check it
+                total += 1
+                if not check_file_health(item):
+                    corrupt += 1
+            elif os.path.isdir(item):
+                # It's a folder, find all .nc files inside recursively
+                for root, dirs, files in os.walk(item):
+                    for file in files:
+                        if file.endswith(".nc"):
+                            full_path = os.path.join(root, file)
+                            total += 1
+                            if not check_file_health(full_path):
+                                corrupt += 1
 
     click.echo("-" * 20)
     click.secho(f"Scan complete. Found {corrupt} corrupt files out of {total}.", 

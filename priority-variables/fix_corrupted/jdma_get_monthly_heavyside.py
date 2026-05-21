@@ -53,6 +53,7 @@ TARGET_DIR = os.getcwd()
 ATMOS_FILES = []
 OCEAN_FILES = []
 OCEAN_FILES = ['mon__grid_T','mon__grid_V','mon__diaptr']
+OCEAN_FILES = ['mon__diaptr']
 CICE_FILES = []
 
 # ==============================================================

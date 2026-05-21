@@ -22,10 +22,20 @@ TARGET_DIR = os.getcwd()
 #         'SSP370': range(2015, 2100)}
 years = {'SSP370': range(2031, 2032)}
 years = {'HIST2': range(1952, 1953)}
+years = {'HIST2': range(1976, 1977)}
+years = {'HIST2': range(1953, 1954)}
+
+years = {'HIST2': range(1975, 1976)}
 
 # Dictionary holding all variables you might want to extract
 # Select which one using var_index (start from 1 to allow slurm array index as input)
 files_type = {1 :  ['_mon__grid_V', 'ncvar%vs', 'OCN']}
+files_type = {1 :  ['_mon__diaptr', 'ncvar%zosrfpac', 'OCN']}
+files_type = {1 :  ['_mon__grid_T', 'ncvar%botpres', 'OCN']}
+
+files_type = {1 :  ['_mon__diaptr', 'ncvar%zotematl', 'OCN']}
+
+
 
 def get_my_data(sid, ens, var_index, exp):
    

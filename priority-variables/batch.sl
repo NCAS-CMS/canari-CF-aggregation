@@ -2,10 +2,10 @@
 #SBATCH --account=canari
 #SBATCH --partition=standard
 #SBATCH --qos=short
-#SBATCH -o %x.out
-#SBATCH -e %x.err
-##SBATCH -o %x_%j.out   # JobName_JobID.out
-##SBATCH -e %x_%j.err   # JobName_JobID.err
+##SBATCH -o %x.out
+##SBATCH -e %x.err
+#SBATCH -o %x_%j.out   # JobName_JobID.out
+#SBATCH -e %x_%j.err   # JobName_JobID.err
 ##SBATCH --cpus-per-task=16    
 #SBATCH --mem=200G           
 #SBATCH --time=04:00:00
@@ -29,3 +29,5 @@ else
     echo "----------------------------------------"
     exit 1
 fi
+
+# for scenario in HIST2 SSP370; do for realm in OCN CICE; do for member in {1..40}; do sbatch --export=ALL,member=$member,realm=$realm,scenario=$scenario batch.sl ; done;  done; done
