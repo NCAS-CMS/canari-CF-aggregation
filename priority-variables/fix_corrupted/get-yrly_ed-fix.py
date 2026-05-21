@@ -13,16 +13,19 @@ import cf
 import os
 
 SOURCE_DIR = '/work/xfc/vol10/user_cache/canari/bjharvey/temp'
+SOURCE_DIR = os.getcwd()
 #TARGET_DIR = '/gws/nopw/j04/canari/shared/large-ensemble/extras'
-TARGET_DIR = '/gws/ssde/j25b/canari/shared/large-ensemble/extras'
+TARGET_DIR= '/gws/ssde/j25b/canari/shared/large-ensemble/extras'
+TARGET_DIR = os.getcwd()
 
 #years = {'HIST2': range(1950, 2015),
 #         'SSP370': range(2015, 2100)}
 years = {'SSP370': range(2031, 2032)}
+years = {'HIST2': range(1952, 1953)}
 
 # Dictionary holding all variables you might want to extract
 # Select which one using var_index (start from 1 to allow slurm array index as input)
-files_type = {1 :  ['_mon_', 'ncvar%m01s05i216_3', 'ATM']}
+files_type = {1 :  ['_mon__grid_V', 'ncvar%vs', 'OCN']}
 
 def get_my_data(sid, ens, var_index, exp):
    
@@ -53,7 +56,7 @@ def get_my_data(sid, ens, var_index, exp):
          os.makedirs(out_dir)
       except FileExistsError:
          pass
-      out_file_name = out_dir + '/' + sid[-5:] + cptstr + '_' + str(ens) + file_type[0] + file_type[1][6:] + '.nc'
+      out_file_name = out_dir + '/' + sid[-5:] + cptstr + '_' + str(ens) + file_type[0] + '_'+file_type[1][6:] + '.nc'
       print (' year', yr, 'out_file: ',  out_file_name)
       write_time = time.time()
       cf.write(f, out_file_name, compress=1)

@@ -43,14 +43,16 @@ MONTHS_PER_CYCLE = 3
 
 # If extracting files using JDMA set target location for extracted files. (ie. not using the --filelist option)
 TARGET_DIR = '/work/xfc/vol10/user_cache/canari/bjharvey/temp'
+TARGET_DIR = os.getcwd()
 
 # File types to extract
 #ATMOS_FILES = ['day_','mon_','1hr_','3hr_','6hr_pt_','day_z_','mon_z_','1hr_pt_','6hr_']
 #OCEAN_FILES = ['day__grid_T','mon__grid_T','mon__grid_U','mon__grid_V','mon__diaptr']
 #CICE_FILES = ['day','mon']
 
-ATMOS_FILES = ['mon_']
+ATMOS_FILES = []
 OCEAN_FILES = []
+OCEAN_FILES = ['mon__grid_T','mon__grid_V','mon__diaptr']
 CICE_FILES = []
 
 # ==============================================================
