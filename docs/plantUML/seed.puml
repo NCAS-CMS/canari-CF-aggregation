@@ -1,0 +1,56 @@
+@startuml
+' --- Modern Layout (No Overlap Guaranteed) ---
+skinparam shadowing false
+skinparam dpi 300
+skinparam nodesep 60
+skinparam ranksep 40
+
+header Seed CFA File Creation Flow
+footer PlantUML Version %version()
+
+start
+
+partition "Initialisation & Discovery" {
+    :Parse Arguments;
+    if (RunID Valid?) then (no)
+        #pink:Exit Error;
+        detach
+    else (yes)
+        :Build Glob Pattern;
+        :Search for Files;
+        if (Files Found?) then (no)
+            #pink:Print Warning & Exit;
+            detach
+        else (yes)
+            :cf.read(aggregate=False);
+        endif
+    endif
+}
+
+partition "Processing" {
+    if (Is Realm 'ice'?) then (yes)
+        :Insert Missing Time Axis (T);
+        :Filter Out VGRDi/VGRDs;
+    else (no)
+    endif
+
+    split
+        if (Atmos & Testing?) then (yes)
+            :Subset Specific ncvar IDs;
+        else (no)
+            :Keep All Variables;
+        endif
+    split again
+        :Finalise Metadata;
+        :Add Field Ancillary;
+    end split
+}
+
+partition "Output" {
+    :Set Time Axis as Unlimited;
+    :Relativise Paths;
+    :Write .cfa file;
+}
+
+stop
+@enduml
