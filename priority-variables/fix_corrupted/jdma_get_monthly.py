@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # ------------------------------------------------------------------------------------------------
 #
-# Author: Rosalyn Hatcher       Date: January 2024
-#
 # Description:
 #
 # Usage: jdma_get.py [--filelist] [--start <year>] [--end <year>] [--cycle <year><mon>] [--ens <ensemble-num>] <suite-id>
