@@ -84,10 +84,10 @@
 \thispagestyle{fancy}
 \tableofcontents
 
-
+\clearpage
 \section{Introduction}
 
-This document details the processes by which data from the CANARI project -- large ensembles of simulations using the HadGEM3-GC3.1 climate model \citep{williams2018} -- has been aggregated after its ingestion into the Joint-storage Data Migration App (JDMA) archive\footnote{\url{https://help.jasmin.ac.uk/docs/short-term-project-storage/jdma/}}. The JDMA archive is hosted on the JASMIN platform hosted by the Centre for Environmental Data Analysis, CEDA\footnote{\url{https://www.ceda.ac.uk}}.
+This document details the processes by which data from the CANARI project -- large ensembles of simulations using the HadGEM3-GC3.1 climate model \citep{williams2018} -- has been aggregated after its ingestion into the Joint-storage Data Migration App \label{jdma} (JDMA) archive\footnote{\url{https://help.jasmin.ac.uk/docs/short-term-project-storage/jdma/}}. The JDMA archive is hosted on the JASMIN platform hosted by the Centre for Environmental Data Analysis, CEDA\footnote{\url{https://www.ceda.ac.uk}}.
 
 The CANARI ensemble consists of two, 40-member ensembles:
 
@@ -278,15 +278,16 @@ The results of the arrangement step is shown in Figure \ref{fig:uniquevalues}, w
 
 \subsubsection{JDMA `external' IDs}
 
-Ongoing work will see the data on the JDMA archive moved to the Near-Line Data Store (NLDS).\footnote{\url{https://help.jasmin.ac.uk/docs/short-term-project-storage/nlds/}} To assist in this process, the elastic tape `external IDs' are also required. These numbers are found from the \texttt{jdma batch} command as follows:
+Ongoing work will see the data on the JDMA archive moved to the Near-Line Data Store (NLDS).\footnote{\url{https://help.jasmin.ac.uk/docs/short-term-project-storage/nlds/}} To assist in this process, the elastic tape `external IDs' are also required. These numbers are found from the \texttt{jdma batch} command as shown in Listing \ref{lst:jdma-batch}):
 
 \begin{center}
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[
     basicstyle=\small\ttfamily,
+    label={lst:jdma-batch},
     frame=single,
     backgroundcolor=\color{gray!5},
-    breaklines=true,
+    breaklines=true,caption={\texttt{jdma batch} output},
     keepspaces=true,
     columns=fullflexible
 ]
@@ -399,15 +400,16 @@ This section compares the time taken in each of the seed, grow and arrange steps
 
 \subsection{Seed}\label{aseed}
 
+Listing \ref{lst:seed}
 
 
 \begin{center}
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[
     basicstyle=\small\ttfamily,
-    frame=single,
+    frame=single,caption={\texttt{seed.py}},
     backgroundcolor=\color{gray!5},
-    breaklines=true,
+    breaklines=true,label={lst:seed},
     keepspaces=true,
     columns=fullflexible
 ]
@@ -446,14 +448,14 @@ time python seed.py --runid     cy537\
 
 \subsection{Grow}
 
-As for \S~\ref{aseed} for the growth step.
+As for \S~\ref{aseed} for the growth step. Code usage in Listing \ref{lst:grow}.
 
 \begin{center}
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[
     basicstyle=\small\ttfamily,
-    frame=single,
-    backgroundcolor=\color{gray!5},
+    frame=single,caption={\texttt{grow.py}},
+    backgroundcolor=\color{gray!5},label={lst:grow},
     breaklines=true,
     keepspaces=true,
     columns=fullflexible
@@ -489,13 +491,13 @@ time python grow.py --runid   cy537\
 
 \subsection{Arrange}
 
-As for \S~\ref{aseed} for the arrange step.
+As for \S~\ref{aseed} for the arrange step. Code usage shown in Listing \ref{lst:arrange}.
 
 \begin{center}
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[
     basicstyle=\small\ttfamily,
-    frame=single,
+    frame=single,label={lst:arrange}, caption={\texttt{arrange.py}},
     backgroundcolor=\color{gray!5},
     breaklines=true,
     keepspaces=true,
@@ -671,8 +673,15 @@ For the priority variables, all data is accessible `live' on the `canari' Group 
 
 \end{itemize}
 
-Because of the availability of the PVs on disk, the process for obtaining the CFA files representing each realm is greatly simplified and is performed by a single Python script, \texttt{priority-variables.py}. This script reads in all the data for each member of the historical and SSP3-7.0 ensembles and  
+Because of the availability of the PVs on disk, the process for obtaining the CFA files representing each realm is greatly simplified and is performed by a single Python script, \texttt{priority-variables.py}. This script reads in all the data for each member of the historical and SSP3-7.0 ensembles and writes out one CFA files for each variable/scenario/member combination. The \texttt{priority-variables} Python script which performs this is illustrated using \texttt{PlantUML} in Figure \ref{fig:priority-variables}.
 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/priority-variables.png}
+    \caption{Algorithm for the \texttt{priority-files.py} file, Figure prepared using \texttt{PlantUML}. }
+    \label{fig:priority-variables}
+\end{figure}
 
 \begin{figure}[htbp]
     \centering
@@ -696,9 +705,150 @@ Because of the availability of the PVs on disk, the process for obtaining the CF
 \end{figure} 
 
 
+\clearpage
 
-\newpage
+\subsection{Discovery and generation of single-variable files}
 
+The full CANARI data set is held on the JDMA system -- see page \pageref{jdma} -- but to retrieve individual variables there is a 2 step process: 
+
+\begin{enumerate}
+    \item Retrieve monthly data from JDMA for the years(s) required (see Figure \ref{fig:jdma_get_monthly}).
+    \item Extract the required data and write to single-variable files (see Figure \ref{fig:get-yearly}).
+\end{enumerate}
+
+\subsubsection{Retrieval}
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/jdma_get_monthly.png}
+    \caption{Algorithm for the \texttt{\detokenize{jdma_get_monthly.py}} file, Figure prepared using \texttt{PlantUML}. }
+    \label{fig:jdma_get_monthly}
+\end{figure} 
+
+\begin{lstlisting}[
+    caption={Output of python jdma\_get\_monthly.py {-}{-}help}, % Added backslash here
+    label={lst:jdma_get_monthly},
+    basicstyle=\small\ttfamily,
+    frame=single,
+    breaklines=true,
+    backgroundcolor=\color{gray!5},
+    columns=fullflexible,
+    keepspaces=true
+]
+> python jdma_get_monthly.py --help
+usage: jdma_get_monthly.py [-h] [--start START] [--end END] [--cycle CYCLE] [--filelist] [--ens ENS] suite
+
+positional arguments:
+  suite          Suite ID to extract data from
+
+options:
+  -h, --help     show this help message and exit
+  --start START  Year from which to start extracting data from
+  --end END      Year to extract data up to (included)
+  --cycle CYCLE  Cycle (YYYYMM) for which to extract data for. Cannot be used in combination with --start/--end
+  --filelist     Create file(s) containing a list of files that would be extracted
+  --ens ENS      Ensemble number of suite
+(cfa_env) sci-vm-01|Tue May 26|15:27:35 BST|fix_corrupted|[priority-variables]>
+\end{lstlisting}
+
+
+\subsubsection{Extraction to yearly}
+
+
+Figure \ref{fig:get-yearly} shows this graphically and Listing \ref{lst:get-yearly} gives the code implementation.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/get-yearly.png}
+    \caption{Algorithm for the \texttt{\detokenize{get-yearly.py}} file, Figure prepared using \texttt{PlantUML}. }
+    \label{fig:get-yearly}
+\end{figure} 
+
+
+
+\begin{lstlisting}[
+    caption={Output of python jget-yearly.py {-}{-}help}, % Added backslash here
+    basicstyle=\small\ttfamily,
+    label={lst:get-yearly},
+    frame=single,
+    breaklines=true,
+    backgroundcolor=\color{gray!5},
+    columns=fullflexible,
+    keepspaces=true
+]
+> python get-yearly.py --help
+usage: get-yearly.py [-h] --year YEAR --runid RUNID --member MEMBER --scenario SCENARIO --realm {ATM,OCN,CICE}
+                     --filetype FILETYPE --var VAR
+
+Extract single-year variables from JDMA-retrieved data.
+
+options:
+  -h, --help            show this help message and exit
+  --year YEAR           Year to process (e.g. 1975)
+  --runid RUNID         Run ID without the u- prefix (e.g. cz649)
+  --member MEMBER       Ensemble member number
+  --scenario SCENARIO   Scenario (e.g. HIST2)
+  --realm {ATM,OCN,CICE}
+                        Realm
+  --filetype FILETYPE   Type (e.g. mon__diaptr)
+  --var VAR             Var name (e.g. zotematl)
+
+\end{lstlisting}
+
+
+
+\clearpage
+
+
+
+\subsection{Validation of corrupt priority-variable files}
+
+Figure \ref{fig:validate-files} shows the validation process graphically and Listing \ref{lst:validate} shows the code implementation.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/validate.png}
+    \caption{Algorithm for the \texttt{\detokenize{validate-files.py}} file, Figure prepared using \texttt{PlantUML}. }
+    \label{fig:validate-files}
+\end{figure} 
+
+
+
+
+\begin{lstlisting}[
+    caption={Output of python validate-files.py {-}{-}help}, % Added backslash here
+    basicstyle=\small\ttfamily,
+    label={lst:validate},
+    frame=single,
+    breaklines=true,
+    backgroundcolor=\color{gray!5},
+    columns=fullflexible,
+    keepspaces=true
+]
+> python validate-files.py  --help
+Usage: validate-files.py [OPTIONS]
+
+  Scan NetCDF files and generate a full Health Report (Live Logging).
+
+Options:
+  -p, --path TEXT        Path to scan.
+  -l, --list PATH        Text file with paths.
+  -w, --workers INTEGER  Number of parallel workers.
+  -o, --out TEXT         Output report file.
+  --help                 Show this message and exit.
+(cfa_env) sci-vm-01|Tue May 26|16:02:45 BST|fix_corrupted|[priority-variables]>
+\end{lstlisting}
+
+
+
+
+
+
+
+\clearpage
 
 \bibliographystyle{plainnat} 
 \bibliography{bib} 
