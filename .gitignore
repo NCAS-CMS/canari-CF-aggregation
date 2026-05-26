@@ -41,3 +41,5 @@ docs/*.aux
 docs/*.log
 docs/*.toc
 docs/*.synctex.gz
+
+*failed*.txt
