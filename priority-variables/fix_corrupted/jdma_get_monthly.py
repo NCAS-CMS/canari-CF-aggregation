@@ -7,7 +7,6 @@
 #
 # Options:
 #    --filelist     - Write filepaths to file. Does not issue JDMA GET requests.
-#                     List of files can then be passed to et_get.py
 #
 #    --start <year> - Year from which to start extracting data for
 #
@@ -389,10 +388,7 @@ if __name__ == '__main__':
         parser.print_help()
         sys.exit(1)
 
-    #suite = 'u-cv625'
-    #ens_num = 2
     suite = args.suite
-    #ens_num = args.ens_num
     if args.ens:
         ens_num = args.ens
     else:
