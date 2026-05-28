@@ -860,12 +860,13 @@ options:
   -h, --help     show this help message and exit
   --start START  Year from which to start extracting data from
   --end END      Year to extract data up to (included)
-  --cycle CYCLE  Cycle (YYYYMM) for which to extract data for. Cannot be used in combination with --start/--end
+  --cycle CYCLE  Cycle (YYYYMM) for which to extract data for. Cannot be used in combination with --start/--end 
   --filelist     Create file(s) containing a list of files that would be extracted
   --ens ENS      Ensemble number of suite
 (cfa_env) sci-vm-01|Tue May 26|15:27:35 BST|fix_corrupted|[priority-variables]>
 \end{lstlisting}
 
+\clearpage
 
 \subsubsection{Extraction to yearly}
 
@@ -873,7 +874,7 @@ options:
 Figure \ref{fig:get-yearly} shows this graphically and Listing \ref{lst:get-yearly} gives the code implementation.
 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/get-yearly.png}
     \caption{Algorithm for the \texttt{\detokenize{get-yearly.py}} file, Figure prepared using \texttt{PlantUML}. }
