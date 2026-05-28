@@ -1,0 +1,33 @@
+Validation Report - 2026-05-26 10:35:21
+Total files to scan: 27
+--------------------------------------------------
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/HIST2/35/OCN/yearly/1975/cz649o_35_mon__diaptr_zotematl.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/HIST2/38/CICE/yearly/2000/dd439i_38_mon_fmelttn_ai.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/HIST2/7/OCN/yearly/1952/cz547o_7_mon__grid_V_vs.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/HIST2/7/OCN/yearly/1976/cz547o_7_mon__diaptr_zosrfpac.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/HIST2/8/OCN/yearly/1953/cy436o_8_mon__grid_T_botpres.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/HIST2/9/CICE/yearly/1964/cw342i_9_day_siforceintstry.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/10/OCN/yearly/2020/de851o_10_mon__grid_T_snow_ai_cea.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/14/CICE/yearly/2039/de939i_14_mon_flatn_ai.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/16/CICE/yearly/2058/df299i_16_mon_uvel.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/16/OCN/yearly/2020/df299o_16_mon__diaptr_sopstldf_atl.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/16/OCN/yearly/2035/df299o_16_mon__diaptr_sophtadv.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/16/OCN/yearly/2087/df299o_16_mon__grid_V_sometauy.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/23/CICE/yearly/2016/df935i_23_mon_sss.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/23/CICE/yearly/2071/df935i_23_mon_shear.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/24/OCN/yearly/2086/df936o_24_mon__diaptr_zomsfglo.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/30/OCN/yearly/2028/dh417o_30_mon__diaptr_zotemglo.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/30/OCN/yearly/2048/dh417o_30_mon__grid_T_osalttend.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/30/OCN/yearly/2048/dh417o_30_mon__grid_T_pr.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/30/OCN/yearly/2053/dh417o_30_mon__grid_T_evap_ao_cea.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/30/OCN/yearly/2053/dh417o_30_mon__grid_T_hfrainds.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/30/OCN/yearly/2060/dh417o_30_mon__grid_T_sohflisf.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/30/OCN/yearly/2075/dh417o_30_mon__grid_T_sossheig.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/31/CICE/yearly/2029/di511i_31_mon_strocnx.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/31/OCN/yearly/2039/di511o_31_mon__grid_T_soqlatisf.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/35/CICE/yearly/2031/di515i_35_mon_apond_ai.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/35/OCN/yearly/2015/di515o_35_mon__diaptr_sophtldf.nc | Healthy
+[OK]       /gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/35/OCN/yearly/2098/di515o_35_mon__diaptr_zomsfpac.nc | Healthy
+
+--------------------------------------------------
+Final Summary: 27 Healthy, 0 Corrupt

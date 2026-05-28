@@ -1,0 +1,68 @@
+@startuml
+' Scale to fit A4 Portrait
+scale 0.85
+skinparam dpi 300
+skinparam shadowing false
+skinparam nodesep 20
+skinparam ranksep 25
+
+header (NetCDF Validation Logic: validate_files.py)
+footer PlantUML Version %version()
+
+start
+
+' COLUMN 1: File Discovery & Parallel Setup
+split
+   partition "File Discovery" {
+      :Parse CLI Options\n(""--path"", ""--list"", ""--workers"");
+      :Identify .nc files via\nWalk and Glob;
+      :Remove duplicates & sort;
+      :Initialize Report File;
+   }
+
+   partition "Parallel Execution" {
+      :Start ThreadPoolExecutor;
+      note right: Parallel workers (w)
+      :Submit check_file_health\nfor each file;
+      repeat
+         :Monitor tqdm progress;
+         :Log result to report;
+         note right: Live logging (buffering=1)
+      repeat while (More files?) is (yes)
+      ->no;
+   }
+
+' COLUMN 2: The Two-Stage Health Check
+split again
+   partition "check_file_health()" {
+      #aliceblue:STAGE 1: Data Integrity;
+      note left: Uses netCDF4
+      :Silence HDF5 noise;
+      :Test start/end slices\nof all variables;
+      
+      if (HDF5/Slicing Error?) then (yes)
+          -[#red]->
+          :Return FAILED Stage 1;
+      else (no)
+          #aliceblue:STAGE 2: CF Metadata;
+          note left: Uses cf-python
+          :Read Field;
+          :Validate coordinate bounds\n(array access);
+          if (Metadata/Coordinate Error?) then (yes)
+              -[#red]->
+              :Return FAILED Stage 2;
+          else (no)
+              -[#green]->
+              :Return Healthy;
+          endif
+      endif
+   }
+end split
+
+partition "Finalisation" {
+    :Print summary to console;
+    :Append Final Summary to file;
+}
+
+stop
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+' Scale to fit A4 Portrait/Landscape
+scale 0.85
+skinparam dpi 300
+skinparam shadowing false
+skinparam nodesep 20
+skinparam ranksep 25
+
+header (JDMA Yearly Extraction Logic: get-yearly.py)
+footer PlantUML Version %version()
+
+start
+
+split
+   partition "Initialisation" {
+      :Parse CLI Arguments\n(year, runid, member, var, etc.);
+      :Map Realm to ID\n(ATM->a, OCN->o, CICE->i);
+   }
+
+   partition "Path Construction" {
+      :Define **in_dir_pattern**\n(u-sid/year*Z);
+      :Define **file_pattern**\n(sid+cptstr_ens_filetype_*.nc);
+      note right: Uses wildcards for JDMA timestamps
+   }
+
+split again
+   partition "Data Processing (CF-Python)" {
+      :Read data with **cf.read**;
+      note right: Select by ncvar%var_name
+      
+      if (Data Found?) then (no)
+         #pink:Print Error;
+         stop
+      else (yes)
+         :Create Output Directory;
+         note left: exp/member/realm/yearly/year
+         
+         :Define Output Filename;
+         :Write Field to Disk\n(cf.write with compress=1);
+      endif
+   }
+end split
+
+partition "Finalisation" {
+    :Log Performance Stats\n(Aggregate vs Write time);
+}
+
+stop
+@enduml

@@ -1,0 +1,63 @@
+@startuml
+' Scale to fit A4
+scale 0.85
+skinparam dpi 300
+skinparam shadowing false
+skinparam nodesep 20
+skinparam ranksep 20
+
+header CFA Metadata Processing (Two-Column Layout)
+footer PlantUML Version %version()
+
+start
+
+' COLUMN 1: Setup and Parsing
+split
+   partition "Initialisation" {
+      :Load Member/RunID Mapping;
+      :Parse CLI Args\n(Member > 1 check);
+      :Extract Template IDs;
+   }
+   partition "Batch Data Parsing" {
+      :Load member-runid.md;
+      if (Find 'jdma batch'?) then (yes)
+          :Extract Batch IDs\n& Cycle Points;
+          :Map Seasons to\nBatch Numbers;
+      else (no)
+          #pink:FATAL: Exit Error;
+          detach
+      endif
+   }
+
+' COLUMN 2: File Ops and Processing
+split again
+   partition "File Preparation" {
+      :Identify Template File (.cfa);
+      if (Testing?) then (yes)
+          :Prepend 'testing_';
+      else (no)
+          :Standard Name;
+      endif
+      :Copy Template to\nNew Member File;
+      :Open New File (r+);
+   }
+
+   partition "Processing Loop" {
+      :Iterate NetCDF Variables;
+      if (Type?) then (unique_values)
+          :Generate Time Series;
+          :Apply Quarter Map;
+      else (uris)
+          :Replace RunID\n(cv575 -> New);
+      endif
+      :Update IDs from Map;
+      :Write to Variable;
+   }
+end split
+
+partition "Finalisation" {
+    :Close Dataset;
+}
+
+stop
+@enduml

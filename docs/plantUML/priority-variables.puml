@@ -1,0 +1,52 @@
+@startuml
+skinparam dpi 300
+' Widen the gap between elements to prevent text overlap
+skinparam nodesep 120
+skinparam ranksep 80
+
+header (NEMO Metadata Fix Logic)
+footer PlantUML Version %version()
+
+start
+
+partition "Initialisation" {
+  :Receive CLI Arguments;
+  note right
+    realm, member, 
+    data_path, scenario
+  end note
+  :Map Member to RunID;
+}
+
+partition "Processing Loop" {
+  :Iterate Unique Variables (tqdm);
+  :Construct search pattern\n(var_pattern);
+  
+  if (cf.read() successful?) then (yes)
+    :Aggregate Data\n(relaxed_identities);
+  else (no)
+    :Log to failed_patterns.txt;
+    stop
+  endif
+}
+
+partition "Coordinate Metadata Fix" {
+  if (Has T-axis?) then (yes)
+    :Squeeze 'time_counter'\n(Redundant Dim);
+    if (Missing standard_name?) then (yes)
+      :Set 'time' as standard_name;
+    else (no)
+      :Keep Existing;
+    endif
+  else (no)
+    :Skip Clean-up;
+  endif
+}
+
+partition "Finalisation" {
+  :Generate .cfa Filename;
+  :cf.write() to Disk;
+}
+
+stop
+@enduml
