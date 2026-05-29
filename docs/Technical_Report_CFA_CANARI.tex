@@ -85,6 +85,46 @@
 \tableofcontents
 
 \clearpage
+
+
+
+
+\setcounter{section}{-1}
+
+\section{Project structure}
+
+Figure \ref{fig:project_structure} and Listing \ref{lst:project_structure} show the project structure and the code to generate it respectively.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/project_structure.png}
+    \caption{}
+    \label{fig:project_structure}
+\end{figure}
+
+
+
+
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[
+    basicstyle=\small\ttfamily,
+    label={lst:project_structure},
+    frame=single,
+    backgroundcolor=\color{gray!5},
+    breaklines=true,caption={\texttt{tree$\ldots$} command run in base of repository.},
+    keepspaces=true,
+    columns=fullflexible
+]
+tree -F --dirsfirst --noreport -C -I 'CFA-files|HIST2|SSP370|u-*|_*|*.cfa|plantUML|figures|bib*|*png|go|*.aux|*.bbl|*.blg|*.fdb_latexmk|*.fls|*.log|*.out|*.synctex.gz|*.toc' -H . -o project_structure.html
+\end{lstlisting}
+\end{minipage}
+\end{center}
+
+
+
+\clearpage
+
 \section{Introduction}
 
 This document details the processes by which data from the CANARI project -- large ensembles of simulations using the HadGEM3-GC3.1 climate model \citep{williams2018} -- has been aggregated after its ingestion into the Joint-storage Data Migration App \label{jdma} (JDMA) archive\footnote{\url{https://help.jasmin.ac.uk/docs/short-term-project-storage/jdma/}}. The JDMA archive is hosted on the JASMIN platform hosted by the Centre for Environmental Data Analysis, CEDA\footnote{\url{https://www.ceda.ac.uk}}.
@@ -107,7 +147,7 @@ Each simulation generates data in three month `batches' and the format of the ba
 
 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{figures/batches.png}
     \caption{Example of JDMA batch indexing from the CANARI project pages.}
