@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # ------------------------------------------------------------------------------------------------
 #
+# Author: Rosalyn Hatcher       Date: January 2024
+#
 # Description:
 #
 # Usage: jdma_get.py [--filelist] [--start <year>] [--end <year>] [--cycle <year><mon>] [--ens <ensemble-num>] <suite-id>
@@ -42,14 +44,12 @@ MONTHS_PER_CYCLE = 3
 TARGET_DIR = '/work/xfc/vol10/user_cache/canari/bjharvey/temp'
 TARGET_DIR = os.getcwd()
 
-# File types to extract
+# Example file types to extract
 #ATMOS_FILES = ['day_','mon_','1hr_','3hr_','6hr_pt_','day_z_','mon_z_','1hr_pt_','6hr_']
 #OCEAN_FILES = ['day__grid_T','mon__grid_T','mon__grid_U','mon__grid_V','mon__diaptr']
 #CICE_FILES = ['day','mon']
 
 ATMOS_FILES = []
-OCEAN_FILES = []
-OCEAN_FILES = ['mon__grid_T','mon__grid_V','mon__diaptr']
 OCEAN_FILES = ['mon__diaptr']
 CICE_FILES = []
 
