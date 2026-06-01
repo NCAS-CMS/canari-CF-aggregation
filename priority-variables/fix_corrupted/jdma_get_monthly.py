@@ -5,7 +5,7 @@
 #
 # Description:
 #
-# Usage: jdma_get.py [--filelist] [--start <year>] [--end <year>] [--cycle <year><mon>] [--ens <ensemble-num>] <suite-id>
+# Usage: jdma_get_monthly.py [--filelist] [--start <year>] [--end <year>] [--cycle <year><mon>] [--ens <ensemble-num>] <suite-id>
 #
 # Options:
 #    --filelist     - Write filepaths to file. Does not issue JDMA GET requests.
@@ -19,7 +19,7 @@
 #    --ens <num>    - Ensemble member number
 #
 # Example:
-#    jdma_get.py --filelist --start 1950 --end 1952 --ens 5 u-cv247
+#    jdma_get_monthly.py --filelist --start 1950 --end 1952 --ens 5 u-cv247
 #
 # ------------------------------------------------------------------------------------------------
 
