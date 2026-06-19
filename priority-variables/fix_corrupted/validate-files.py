@@ -29,7 +29,7 @@ def silence_stderr():
 
 def check_file_health(file_path):
     """Performs two-stage integrity and metadata check."""
-    # STAGE 1: Data Integrity
+    # STAGE 1: Data Integrity (Full Chunk Sweep)
     try:
         with silence_stderr():
             with nc.Dataset(file_path, mode="r") as rootgrp:
@@ -37,11 +37,14 @@ def check_file_health(file_path):
                 for var_name in rootgrp.variables:
                     var = rootgrp.variables[var_name]
                     if var.size == 0: continue
-                    _ = var[tuple(slice(0, 1) for _ in range(var.ndim))]
-                    if var.size > 1:
-                        _ = var[tuple(slice(-1, None) for _ in range(var.ndim))]
-    except Exception:
-        return (file_path, False, "FAILED: Stage 1 (Data Integrity / HDF5)")
+                    
+                    # FORCES HDF5 to read/decompress ALL internal chunks
+                    # without loading massive arrays into local Python memory
+                    import numpy as np
+                    _ = np.min(var) 
+                    
+    except Exception as e:
+        return (file_path, False, f"FAILED: Stage 1 (Data Integrity / HDF5: {str(e)})")
 
     # STAGE 2: CF Metadata
     try:
@@ -52,6 +55,7 @@ def check_file_health(file_path):
         return (file_path, True, "Healthy")
     except Exception:
         return (file_path, False, "FAILED: Stage 2 (CF Metadata / Coordinates)")
+
 
 @click.command()
 @click.option('--path', '-p', 'input_paths', multiple=True, help='Path to scan.')
