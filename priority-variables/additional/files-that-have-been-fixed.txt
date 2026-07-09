@@ -1,0 +1,2 @@
+/gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/SSP370/5/ATM/yearly/2031/df220a_5_mon_m01s05i216_3.nc
+/gws/ssde/j25b/canari/users/jonnyhtw/canari-CF-aggregation/priority-variables/fix_corrupted/HIST2/9/ATM/yearly/1996/cw342a_9_day_m01s30i202_3.nc

@@ -5,6 +5,7 @@ import netCDF4 as nc
 import click
 import concurrent.futures
 import glob
+import numpy as np
 from tqdm import tqdm
 from datetime import datetime
 from contextlib import contextmanager, redirect_stderr
@@ -24,7 +25,7 @@ def silence_stderr():
                     finally:
                         sys.stderr.flush()
                         os.dup2(old_stderr.fileno(), stderr_fd)
-            except:
+            except Exception:
                 yield
 
 def check_file_health(file_path):
@@ -36,15 +37,15 @@ def check_file_health(file_path):
                 rootgrp.set_auto_mask(False)
                 for var_name in rootgrp.variables:
                     var = rootgrp.variables[var_name]
-                    if var.size == 0: continue
+                    if var.size == 0: 
+                        continue
                     
                     # FORCES HDF5 to read/decompress ALL internal chunks
-                    # without loading massive arrays into local Python memory
-                    import numpy as np
-                    _ = np.min(var) 
-                    
+                    # catching missing blocks or zlib compression corruptions
+                    _ = np.min(var)
+
     except Exception as e:
-        return (file_path, False, f"FAILED: Stage 1 (Data Integrity / HDF5: {str(e)})")
+        return (file_path, False, f"FAILED: Stage 1 (Data Integrity / HDF5 Corrupted: {str(e)})")
 
     # STAGE 2: CF Metadata
     try:
@@ -53,8 +54,8 @@ def check_file_health(file_path):
             if field.construct(c).has_bounds():
                 _ = field.construct(c).get_bounds().data.array
         return (file_path, True, "Healthy")
-    except Exception:
-        return (file_path, False, "FAILED: Stage 2 (CF Metadata / Coordinates)")
+    except Exception as e:
+        return (file_path, False, f"FAILED: Stage 2 (CF Metadata / Coordinates: {str(e)})")
 
 
 @click.command()
@@ -65,65 +66,85 @@ def check_file_health(file_path):
 def main(input_paths, file_list_path, workers, out):
     """Scan NetCDF files and generate a full Health Report (Live Logging)."""
     file_list = []
+    missing_files = []
 
-    # 1. Gather files
+    # 1. Gather files from command-line arguments
     for p_input in input_paths:
         target = os.path.expanduser(p_input)
-        if os.path.isfile(target): file_list.append(target)
+        if os.path.isfile(target): 
+            file_list.append(target)
         elif os.path.isdir(target):
             for root, _, files in os.walk(target):
                 for f in files:
-                    if f.endswith(".nc"): file_list.append(os.path.join(root, f))
+                    if f.endswith(".nc"): 
+                        file_list.append(os.path.join(root, f))
 
+    # 2. Gather files from text list (Handles missing trailing newlines and logs missing files)
     if file_list_path:
         with open(file_list_path, 'r') as f:
             for line in f:
                 p = line.strip()
                 if p:
-                    matches = glob.glob(p)
-                    if matches:
-                        file_list.extend(matches)
-                    elif os.path.exists(p):
+                    # Check literal path first to bypass glob issues with ensemble bracket structures
+                    if os.path.exists(p):
                         file_list.append(p)
+                    else:
+                        # Fall back to globbing in case it's a wildcard match pattern
+                        matches = glob.glob(p)
+                        if matches:
+                            file_list.extend(matches)
+                        else:
+                            # Keep track of paths that do not exist anywhere on disk
+                            missing_files.append(p)
+                            click.secho(f"WARNING: File or pattern not found: {p}", fg='yellow', err=True)
 
-    file_list = sorted(list(set(file_list))) 
-    if not file_list:
-        click.secho("No files found to scan!", fg='red')
+    # De-duplicate and sort target file queue
+    file_list = sorted(list(set(file_list)))
+    
+    total_expected = len(file_list) + len(missing_files)
+    if total_expected == 0:
+        click.secho("\nNo target files specified or found!", fg='red')
         return
 
-    click.echo(f"Found {len(file_list)} files. Scanning with {workers} worker{'s' if workers > 1 else ''}...")
+    click.echo(f"Found {len(file_list)} files to process ({len(missing_files)} missing). Scanning with {workers} worker{'s' if workers > 1 else ''}...")
 
-    # Initialize the report file with the header
+    # Initialize the report file header
     with open(out, "w") as f_out:
         f_out.write(f"Validation Report - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        f_out.write(f"Total files to scan: {len(file_list)}\n")
+        f_out.write(f"Total processed files: {len(file_list)}\n")
+        f_out.write(f"Total missing files:   {len(missing_files)}\n")
         f_out.write("-" * 50 + "\n")
 
     corrupt_count = 0
-    
-    # 2. Parallel Processing with Live Append
+
+    # 3. Parallel Processing with Live Append
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
         futures = {executor.submit(check_file_health, f): f for f in file_list}
-        
-        # buffering=1 ensures lines are written to disk as they are generated
+
+        # buffering=1 ensures lines flush out to disk instantly
         with open(out, "a", buffering=1) as f_out:
+            # First write out the missing files so they don't get lost
+            for mf in missing_files:
+                f_out.write(f"[NOT FOUND] {mf} | File does not exist on disk.\n")
+                
+            # Scan active files
             for future in tqdm(concurrent.futures.as_completed(futures), total=len(file_list), unit="file"):
                 path, healthy, msg = future.result()
-                
+
                 if not healthy:
                     corrupt_count += 1
-                
+
                 status = "[OK]      " if healthy else "[CORRUPT]"
                 f_out.write(f"{status} {path} | {msg}\n")
 
-    # 3. Final Summary
+    # 4. Final Summary Terminal Output
     click.echo("-" * 40)
-    summary_text = f"Complete: {corrupt_count} corrupt / {len(file_list)} total"
-    click.secho(summary_text, bold=True, fg='green' if corrupt_count==0 else 'yellow')
-    
+    summary_text = f"Complete: {corrupt_count} corrupt / {len(missing_files)} missing / {len(file_list)} scanned"
+    click.secho(summary_text, bold=True, fg='green' if (corrupt_count == 0 and len(missing_files) == 0) else 'yellow')
+
     with open(out, "a") as f_out:
         f_out.write("\n" + "-" * 50 + "\n")
-        f_out.write(f"Final Summary: {len(file_list) - corrupt_count} Healthy, {corrupt_count} Corrupt\n")
+        f_out.write(f"Final Summary: {len(file_list) - corrupt_count} Healthy, {corrupt_count} Corrupt, {len(missing_files)} Missing\n")
 
     click.echo(f"Full report saved to: {os.path.abspath(out)}")
 
