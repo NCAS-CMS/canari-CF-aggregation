@@ -141,7 +141,7 @@ SSP stands for Shared Socioeconomic Pathway. These are a family of potential fut
 
 Within the respective ensembles, each member differs only in its initial conditions, which are generated using a hybrid `macro-micro` initialisation method \citep{schiemann2026}.
 
-Each simulation generates data in three month `batches' and the format of the batches' contents are described as, e.g., \texttt{runid/cyclepoint}, where \texttt{runid} takes the form \texttt{u-ab123} and \texttt{cyclepoint} is in the ISO-8601 `datetime' standard, e.g. \texttt{19500101T0000Z} \citep{iso8601}. Each batch is then given an integer index which describes its `location' on the JDMA archive. These values are given on the NCAS-CMS GitHub pages\footnote{\url{https://ncas-cms.github.io/canari}} and an example is given in Figure \ref{fig:batches}\label{batches}. The data is held in monthly files and so each batch contains three sets of data in a common format.
+Each simulation generates data in three month `batches' and the format of the batches' contents are described as, e.g., \texttt{runid/cyclepoint}, where \texttt{runid} takes the form \texttt{u-ab123} and \texttt{cyclepoint} is in the ISO-8601 `datetime' standard, e.g. \texttt{19500101T0000Z} \citep{iso8601}. Each batch is then given an integer index which describes its `location' on the JDMA archive. These values are given on the NCAS-CMS GitHub pages\footnote{\url{https://ncas-cms.github.io/canari-data}} and an example is given in Figure \ref{fig:batches}\label{batches}. The data is held in monthly files and so each batch contains three sets of data in a common format.
 
 
 
@@ -280,7 +280,7 @@ The growth step is only required to be run for the `seed' simulations, i.e. the 
 
 \subsubsection{Note on historical diagnostic sets}\label{note}
 
-For the historical ensemble, members 1-13 have slightly different variable sets\footnote{see \url{https://ncas-cms.github.io/canari/}} to the remainder. Therefore, members 2-12 were seeded from member 1, \texttt{u-dv575}, and 14-40 were seeded from member 13, \texttt{u-cy537}. All SSP3-7.0 members were seeded from its first member, \texttt{u-de814}.
+For the historical ensemble, members 1-13 have slightly different variable sets\footnote{see \url{https://ncas-cms.github.io/canari-data/}} to the remainder. Therefore, members 2-12 were seeded from member 1, \texttt{u-dv575}, and 14-40 were seeded from member 13, \texttt{u-cy537}. All SSP3-7.0 members were seeded from its first member, \texttt{u-de814}.
 
 \subsection{Arrange}\label{arrange} 
 \subsubsection{JDMA batch IDs}
@@ -692,7 +692,7 @@ options:
 
 \subsection{Background}
 
-The entirety of this report has dealt with the CF aggregration of the entire CANARI output as stored (currently, May 2026) on the JDMA system. For many applications however, only a subset of data is required and this is referred to as the `priority variables' -- PVs --  set. Detailed information regarding the variables themselves can be found on the relevant \href{https://ncas-cms.github.io/canari/#priority-and-derived-output-on-jasmin-canari-group-workspace}{NCAS-CMS GitHub page}.
+The entirety of this report has dealt with the CF aggregration of the entire CANARI output as stored (currently, May 2026) on the JDMA system. For many applications however, only a subset of data is required and this is referred to as the `priority variables' -- PVs --  set. Detailed information regarding the variables themselves can be found on the relevant \href{https://ncas-cms.github.io/canari-data/#priority-and-derived-output-on-jasmin-canari-group-workspace}{NCAS-CMS GitHub page}.
 
 \subsection{Algorithm}
 
