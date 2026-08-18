@@ -28,7 +28,7 @@ def main(realm, member, testing, n_years, scenario):
 
     batch_and_external_ids = np.genfromtxt(
         os.path.expanduser(
-            f"~/canari/docs/{scenario}/combined2.md"
+            f"~/canari-data/docs/{scenario}/combined2.md"
         ),
         dtype=str,
     )
