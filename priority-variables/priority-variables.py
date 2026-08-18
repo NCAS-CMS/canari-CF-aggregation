@@ -209,7 +209,7 @@ def main(realm, member, data_path, scenario, verbose):
             if not os.path.exists("CFA-files"):
                 os.makedirs("CFA-files")
 
-            filename = f"CFA-files/CF-1.13_seed_CANARI_{member}_{runid}_{realm}_{var}.cfa"
+            filename = f"CFA-files/CF-1.13_{scenario}_CANARI_{member}_{runid}_{realm}_{var}.cfa"
             cf.write(f, filename, cfa={"constructs": ["field"]}, chunk_cache=256 * 2**20)
 
 
