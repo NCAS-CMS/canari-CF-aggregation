@@ -29,34 +29,55 @@ def silence_stderr():
                 yield
 
 def check_file_health(file_path):
-    """Performs two-stage integrity and metadata check."""
-    # STAGE 1: Data Integrity (Full Chunk Sweep)
+    """Performs granular multi-stage integrity and metadata checks."""
+    
+    # TEST 1: File Existence & Non-zero Size
+    try:
+        if os.path.getsize(file_path) == 0:
+            return (file_path, False, "FAILED: Test 1 (Empty File - 0 bytes)")
+    except Exception as e:
+        return (file_path, False, f"FAILED: Test 1 (File Access Error: {str(e)})")
+
+    # TEST 2: HDF5 Decompression / Data Chunk Sweep
     try:
         with silence_stderr():
             with nc.Dataset(file_path, mode="r") as rootgrp:
                 rootgrp.set_auto_mask(False)
+                if not rootgrp.variables:
+                    return (file_path, False, "FAILED: Test 2 (NetCDF dataset contains zero variables)")
+                
                 for var_name in rootgrp.variables:
                     var = rootgrp.variables[var_name]
-                    if var.size == 0: 
+                    if var.size == 0:
                         continue
-                    
-                    # FORCES HDF5 to read/decompress ALL internal chunks
-                    # catching missing blocks or zlib compression corruptions
-                    _ = np.min(var)
+
+                    # Attempt reading data chunks to trigger HDF5 decompression errors
+                    try:
+                        _ = np.min(var)
+                    except Exception as var_err:
+                        return (file_path, False, f"FAILED: Test 2 (HDF5 Decompression corrupted on variable '{var_name}': {str(var_err)})")
 
     except Exception as e:
-        return (file_path, False, f"FAILED: Stage 1 (Data Integrity / HDF5 Corrupted: {str(e)})")
+        return (file_path, False, f"FAILED: Test 2 (HDF5/NetCDF Structure Corrupted: {str(e)})")
 
-    # STAGE 2: CF Metadata
+    # TEST 3: CF Metadata & Coordinate Bounds Validation
     try:
-        field = cf.read(file_path)[0]
+        fields = cf.read(file_path)
+        if not fields:
+            return (file_path, False, "FAILED: Test 3 (CF Read returned no fields)")
+        
+        field = fields[0]
         for c in field.coordinates():
-            if field.construct(c).has_bounds():
-                _ = field.construct(c).get_bounds().data.array
+            coord_construct = field.construct(c)
+            if coord_construct.has_bounds():
+                try:
+                    _ = coord_construct.get_bounds().data.array
+                except Exception as bounds_err:
+                    return (file_path, False, f"FAILED: Test 3 (Coordinate Bounds Corrupted for coordinate '{c}': {str(bounds_err)})")
+                    
         return (file_path, True, "Healthy")
     except Exception as e:
-        return (file_path, False, f"FAILED: Stage 2 (CF Metadata / Coordinates: {str(e)})")
-
+        return (file_path, False, f"FAILED: Test 3 (CF Metadata Standard Check: {str(e)})")
 
 @click.command()
 @click.option('--path', '-p', 'input_paths', multiple=True, help='Path to scan.')
