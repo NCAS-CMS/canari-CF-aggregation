@@ -1,3 +1,5 @@
+This are lists of the files which are on the CEDA archive (v1) here --->  https://dx.doi.org/10.5285/4b62fafc68ae4c3784fb2819f652c537 
+
 $ pwd
 /datacentre/archvol6/pfs220/archive/spot-62455-canari/data/priority/HIST2
 (cfa_env) sci-vm-01.jasmin.ac.uk|Tue Sep 08|17:00:48 BST|HIST2 $ for i in {01..40}; do echo $i ; find ./${i}/ -name *.nc -type f |wc -l; done

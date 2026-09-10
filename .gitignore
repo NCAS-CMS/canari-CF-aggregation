@@ -1,8 +1,6 @@
 *.cfa
-missing*
 .DS_Store
 .ipynb_checkpoints
-*.ipynb
 .nfs*
 .html
 __pycache__
