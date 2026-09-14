@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Create seed CFA file for CANARI priority variables.
+Create CFA file for CANARI priority variables.
 """
 
 import argparse

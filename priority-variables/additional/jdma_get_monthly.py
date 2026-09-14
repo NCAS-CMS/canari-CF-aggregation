@@ -50,8 +50,8 @@ TARGET_DIR = os.getcwd()
 #CICE_FILES = ['day','mon']
 
 ATMOS_FILES = []
-OCEAN_FILES = []
-CICE_FILES = ['day']
+OCEAN_FILES = ['day__grid_T']
+CICE_FILES = []
 
 # ==============================================================
 # End of User Configurable Settings

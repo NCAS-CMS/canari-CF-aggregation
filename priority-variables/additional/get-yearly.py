@@ -4,6 +4,7 @@ import time
 import cf
 import os
 import argparse
+import sys
 
 # --- Configuration ---
 SOURCE_DIR = os.getcwd()
@@ -32,11 +33,12 @@ def get_my_data(sid, ens, exp, realm, filetype, var_list, year):
             f = cf.read(file_pattern,
                         aggregate={'ncvar_identities': True, 'concatenate': False},
                         select=f'ncvar%{var_name}',
-                        dask_chunks=None)
+                        dask_chunks=None,
+                        store_dataset_chunks = False)
 
             if not f:
                 print(f"❌ No data found for variable '{var_name}' in {year}")
-                continue
+                sys.exit(1)
 
             print(f"✅ Found {len(f)} field(s)")
 
@@ -54,6 +56,7 @@ def get_my_data(sid, ens, exp, realm, filetype, var_list, year):
 
         except Exception as e:
             print(f"💥 Failed to process variable {var_name} for year {year}: {e}")
+            sys.exit(1)
 
 if __name__ == '__main__':
 
@@ -65,7 +68,7 @@ if __name__ == '__main__':
     parser.add_argument('--scenario', required=True, help='Scenario (e.g. HIST2)')
     parser.add_argument('--realm', required=True, choices=['ATM', 'OCN', 'CICE'], help='Realm')
     parser.add_argument('--filetype', required=True, help='Type (e.g. mon__diaptr)')
-    
+
     # CHANGED: Added nargs='+' to accept one or more space-separated variables
     parser.add_argument('--var', required=True, nargs='+', help='Var names space-separated (e.g. var1 var2)')
 

@@ -1,0 +1,28 @@
+CICE_FILES = ['day']
+for year in {1992..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 18 u-cy879  ;done
+
+CICE_FILES = ['day']
+for year in {1963..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 21 u-da179  ;done
+
+CICE_FILES = ['day']
+for year in {1950..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 29 u-db304  ;done
+
+CICE_FILES = ['day']
+for year in {1959..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 31 u-cz475  ;done
+
+OCEAN_FILES = ['mon__grid_T']
+for year in {1950..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 36 u-dd436  ;done
+
+OCEAN_FILES = ['mon__grid_T']
+for year in {1950..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 37 u-dd438  ;done
+
+OCEAN_FILES = ['mon__grid_T']
+for year in {1950..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 38 u-dd439  ;done
+
+OCEAN_FILES = ['mon__grid_T']
+for year in {1950..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 39 u-dd441  ;done
+
+OCEAN_FILES = ['mon__grid_T']
+for year in {1950..2014}; do echo $year ;  python jdma_get_monthly.py --start $year --end $year --ens 40 u-dd442  ;done
+
+
