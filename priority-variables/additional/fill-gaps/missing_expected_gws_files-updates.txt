@@ -1,208 +1,208 @@
 === MISSING EXPECTED GWS FILES RELATIVE TO MEMBER 1 ===
 
 --- Member 18 ---
-HIST2/18/CICE/yearly/1992/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/1993/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/1994/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/1995/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/1996/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/1997/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/1998/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/1999/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2000/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2001/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2002/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2003/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2004/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2005/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2006/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2007/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2008/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2009/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2010/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2011/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2012/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2013/cy879i_18_day_aicen.nc - Created 
-HIST2/18/CICE/yearly/2014/cy879i_18_day_aicen.nc - Created 
+HIST2/18/CICE/yearly/1992/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/1993/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/1994/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/1995/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/1996/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/1997/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/1998/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/1999/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2000/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2001/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2002/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2003/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2004/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2005/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2006/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2007/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2008/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2009/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2010/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2011/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2012/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2013/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
+HIST2/18/CICE/yearly/2014/cy879i_18_day_aicen.nc - Created  - Copied to GWS priority variable dir.
 
 --- Member 21 ---
-HIST2/21/CICE/yearly/1963/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1964/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1965/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1966/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1967/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1968/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1969/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1970/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1971/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1972/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1973/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1974/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1975/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1976/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1977/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1978/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1979/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1980/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1981/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1982/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1983/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1984/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1985/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1986/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1987/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1988/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1989/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1990/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1991/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1992/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1993/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1994/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1995/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1996/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1997/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1998/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/1999/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2000/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2001/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2002/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2003/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2004/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2005/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2006/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2007/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2008/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2009/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2010/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2011/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2012/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2013/da179i_21_day_aicen.nc - Created
-HIST2/21/CICE/yearly/2014/da179i_21_day_aicen.nc - Created
+HIST2/21/CICE/yearly/1963/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1964/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1965/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1966/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1967/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1968/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1969/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1970/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1971/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1972/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1973/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1974/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1975/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1976/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1977/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1978/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1979/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1980/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1981/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1982/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1983/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1984/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1985/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1986/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1987/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1988/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1989/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1990/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1991/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1992/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1993/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1994/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1995/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1996/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1997/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1998/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/1999/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2000/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2001/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2002/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2003/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2004/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2005/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2006/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2007/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2008/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2009/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2010/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2011/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2012/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2013/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/21/CICE/yearly/2014/da179i_21_day_aicen.nc - Created - Copied to GWS priority variable dir.
 
 --- Member 29 ---
-HIST2/29/CICE/yearly/1950/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1951/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1952/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1953/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1954/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1955/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1956/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1957/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1958/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1959/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1960/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1961/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1962/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1963/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1964/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1965/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1966/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1967/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1968/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1969/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1970/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1971/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1972/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1973/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1974/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1975/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1976/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1977/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1978/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1979/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1980/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1981/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1982/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1983/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1984/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1985/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1986/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1987/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1988/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1989/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1990/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1991/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1992/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1993/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1994/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1995/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1996/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1997/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1998/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/1999/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2000/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2001/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2002/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2003/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2004/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2005/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2006/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2007/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2008/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2009/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2010/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2011/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2012/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2013/db304i_29_day_siforceintstry.nc - Created
-HIST2/29/CICE/yearly/2014/db304i_29_day_siforceintstry.nc - Created
+HIST2/29/CICE/yearly/1950/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1951/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1952/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1953/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1954/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1955/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1956/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1957/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1958/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1959/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1960/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1961/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1962/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1963/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1964/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1965/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1966/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1967/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1968/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1969/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1970/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1971/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1972/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1973/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1974/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1975/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1976/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1977/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1978/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1979/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1980/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1981/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1982/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1983/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1984/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1985/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1986/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1987/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1988/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1989/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1990/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1991/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1992/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1993/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1994/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1995/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1996/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1997/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1998/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/1999/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2000/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2001/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2002/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2003/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2004/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2005/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2006/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2007/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2008/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2009/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2010/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2011/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2012/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2013/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
+HIST2/29/CICE/yearly/2014/db304i_29_day_siforceintstry.nc - Created - Copied to GWS priority variable dir.
 
 --- Member 31 ---
-HIST2/31/CICE/yearly/1959/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1960/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1961/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1962/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1963/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1964/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1965/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1966/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1967/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1968/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1969/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1970/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1971/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1972/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1973/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1974/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1975/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1976/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1977/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1978/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1979/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1980/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1981/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1982/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1983/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1984/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1985/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1986/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1987/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1988/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1989/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1990/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1991/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1992/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1993/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1994/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1995/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1996/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1997/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1998/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/1999/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2000/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2001/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2002/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2003/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2004/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2005/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2006/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2007/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2008/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2009/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2010/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2011/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2012/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2013/cz475i_31_day_aicen.nc - Created
-HIST2/31/CICE/yearly/2014/cz475i_31_day_aicen.nc - Created
+HIST2/31/CICE/yearly/1959/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1960/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1961/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1962/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1963/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1964/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1965/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1966/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1967/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1968/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1969/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1970/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1971/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1972/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1973/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1974/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1975/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1976/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1977/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1978/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1979/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1980/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1981/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1982/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1983/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1984/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1985/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1986/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1987/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1988/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1989/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1990/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1991/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1992/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1993/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1994/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1995/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1996/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1997/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1998/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/1999/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2000/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2001/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2002/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2003/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2004/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2005/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2006/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2007/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2008/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2009/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2010/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2011/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2012/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2013/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
+HIST2/31/CICE/yearly/2014/cz475i_31_day_aicen.nc - Created - Copied to GWS priority variable dir.
 
 --- Member 36 ---
 HIST2/36/OCN/yearly/1950/dd436o_36_mon__grid_T_evap_oce.nc - Excluded from data request
