@@ -1,0 +1,10 @@
+cmip7repack_manifest_chunk_230_53764943.out:cmip7repack: FAILED to repack ./22/CICE/yearly/2014/da190i_22_day_dvsdtt.nc         ---> confirmed corruption with ncview ---> recreated, checked and replaced
+cmip7repack_manifest_chunk_240_53764953.out:cmip7repack: FAILED to repack ./23/CICE/yearly/1968/da191i_23_day_daidtd.nc         ---> confirmed corruption with ncview ---> recreated, checked and replaced
+cmip7repack_manifest_chunk_242_53764955.out:cmip7repack: FAILED to repack ./23/CICE/yearly/1982/da191i_23_day_dardg1dt.nc       ---> confirmed corruption with ncview ---> recreated, checked and replaced 
+cmip7repack_manifest_chunk_244_53764957.out:cmip7repack: FAILED to repack ./23/CICE/yearly/1951/da191i_23_day_vrdg.nc           ---> confirmed corruption with ncview ---> recreated, checked and replaced 
+cmip7repack_manifest_chunk_245_53764958.out:cmip7repack: FAILED to repack ./23/CICE/yearly/1992/da191i_23_day_dvsdtd.nc         ---> confirmed corruption with ncview ---> recreated, checked and replaced 
+cmip7repack_manifest_chunk_391_53765106.out:cmip7repack: FAILED to repack ./32/CICE/yearly/1952/cz568i_32_day_daidtd.nc         ---> confirmed corruption with ncview ---> recreated, checked and replaced 
+cmip7repack_manifest_chunk_393_53765108.out:cmip7repack: FAILED to repack ./32/CICE/yearly/1978/cz568i_32_day_dvsdtd.nc         ---> confirmed corruption with ncview ---> recreated, checked and replaced  
+cmip7repack_manifest_chunk_394_53765109.out:cmip7repack: FAILED to repack ./32/CICE/yearly/1983/cz568i_32_day_hi.nc             ---> confirmed corruption with ncview ---> recreated, checked and replaced   
+cmip7repack_manifest_chunk_395_53765110.out:cmip7repack: FAILED to repack ./32/CICE/yearly/1993/cz568i_32_day_siforceintstry.nc ---> confirmed corruption with ncview ---> recreated, checked and replaced    
+cmip7repack_manifest_chunk_396_53765111.out:cmip7repack: FAILED to repack ./32/CICE/yearly/1995/cz568i_32_day_fsurf_ai.nc       ---> confirmed corruption with ncview ---> recreated, checked and replaced  

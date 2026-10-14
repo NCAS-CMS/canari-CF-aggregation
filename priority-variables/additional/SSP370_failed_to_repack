@@ -1,0 +1,3 @@
+SSP370-cmip7repack_manifest_chunk_0018_54809880.out:cmip7repack: FAILED to repack ./1/CICE/yearly/2059/de814i_1_mon_vsnon.nc ---> Looks fine with ncview, manual cmip7repack fails; DONE; retrieved and replaced in priority
+SSP370-cmip7repack_manifest_chunk_0027_54809889.out:cmip7repack: FAILED to repack ./1/OCN/yearly/2015/de814o_1_mon__grid_T_votemper.nc ---> zero size need to retrieve from tape and rebuild; DONE; replaced in priority
+SSP370-cmip7repack_manifest_chunk_1467_54811367.out:cmip7repack: FAILED to repack ./8/CICE/yearly/2099/de832i_8_day_fsurf_ai.nc ---> corrupt (ncview crash) needs rebuilding; DONE; replaced in priority
